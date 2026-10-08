@@ -1,335 +1,474 @@
-/* =============================================
-   RESET SIMPLES E CONFIGURAÇÕES GERAIS
-   ============================================= */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+/* =================================================================
+   1. DESIGN SYSTEM & VARIÁVEIS CUSTOMIZADAS (:root)
+   ================================================================= */
+:root {
+  /* --- PALETA DE CORES (8 Cores Distintas) --- */
+  --color-primary: #1d3557;         /* 1. Azul institucional principal */
+  --color-secondary: #DAA201;       /* 2. Amarelo/Dourado secundário */
+  --color-accent: #0393C2;          /* 3. Azul de destaque/botão */
+  --color-action: #0692f0;          /* 4. Azul de links */
+  --color-danger: #e63946;          /* 5. Vermelho de erro/validação */
+  --color-neutral-dark: #050505;    /* 6. Texto principal escuro */
+  --color-neutral-mid: #6b7280;     /* 7. Texto secundário/cinza */
+  --color-neutral-light: #a2adc4d2; /* 8. Fundo suave / neutro claro */
+  --color-white: #ffffff;           /* Branco puro */
+
+  /* --- TIPOGRAFIA (5 Patamares Hierárquicos) --- */
+  --font-family-base: 'Valley Sans', system-ui, Arial, sans-serif;
+  --font-family-alt: 'Raleway', 'Lato', sans-serif;
+
+  --font-size-display: 2.5rem;   /* 1. Display / Hero */
+  --font-size-h1: 2rem;          /* 2. Título H1 */
+  --font-size-h2: 1.4rem;        /* 3. Título H2 */
+  --font-size-h3: 1.15rem;       /* 4. Título H3 */
+  --font-size-body: 1.3125rem;   /* 5. Corpo de texto (21px) */
+  --font-size-small: 0.82rem;    /* Auxiliar */
+
+  /* --- ESPAÇAMENTOS MODULARES (Escala Estrita) --- */
+  --space-xxs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 20px;
+  --space-lg: 32px;
+  --space-xl: 40px;
+  --space-xxl: 80px;
+
+  /* --- OUTROS --- */
+  --border-radius-sm: 6px;
+  --border-radius-md: 10px;
+  --border-radius-lg: 20px;
+  --border-radius-full: 50%;
+  --transition-speed: 0.3s ease;
+}
+
+/* =================================================================
+   2. RESET E ESTILOS GLOBAIS
+   ================================================================= */
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
 
 body {
-    font-family: 'Valley Sans', system-ui, Arial, sans-serif;
-    line-height: 1.6;
-    color: #050505;
-    background: #a2adc4d2;
-    text-align: justify;
+  font-family: var(--font-family-base);
+  line-height: 1.6;
+  color: var(--color-neutral-dark);
+  background: var(--color-neutral-light);
+  text-align: justify;
 }
 
 body p {
-    font-size: 21px;
+  font-size: var(--font-size-body);
 }
 
-a { color: #0692f0; text-decoration: none; }
-a:hover { text-decoration: underline; }
+a { 
+  color: var(--color-action); 
+  text-decoration: none; 
+}
+a:hover { 
+  text-decoration: underline; 
+}
 
 img {
-    max-width: 70%;
-    display: block;
-    height: auto;
-    margin: 0 auto;
+  max-width: 70%;
+  display: block;
+  height: auto;
+  margin: 0 auto;
 }
 
-/* =============================================
-   HEADER + NAV
-   ============================================= */
+/* =================================================================
+   3. HEADER + NAV (Flexbox)
+   ================================================================= */
 header {
-    background: #30548634;
-    color: #fff;
-    padding: 40px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
+  background: #30548634;
+  color: var(--color-white);
+  padding: var(--space-xl) var(--space-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xl);
 }
 
 header .logo-area {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 25px;
-    text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  text-align: center;
 }
 
 header .logo-img {
-    height: 180px;
-    width: auto;
-    border-radius: 50%;
-    margin: 0;
+  height: 180px;
+  width: auto;
+  border-radius: var(--border-radius-full);
+  margin: 0;
 }
 
 header .logo {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #fcfafa;
+  font-size: var(--font-size-display);
+  font-weight: bold;
+  color: #fcfafa;
 }
 
 .secao-interativa {
-    background-color: #03528C;
-    padding: 40px 80px;
-    border-radius: 8px;
-    display: inline-block;
+  background-color: #03528C;
+  padding: var(--space-xl) 80px;
+  border-radius: var(--border-radius-sm);
+  display: inline-block;
 }
 
 .secao-interativa ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 30px;
 }
 
 header nav {
-    padding: 12px 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
+  padding: var(--space-sm) 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
 }
 
 .secao-interativa a {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
-    padding-bottom: 5px;
-    transition: opacity 0.3s ease;
+  color: var(--color-white);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  padding-bottom: 5px;
+  transition: opacity var(--transition-speed);
 }
 
 .secao-interativa a:hover {
-    opacity: 0.6;
+  opacity: 0.6;
 }
 
 .secao-interativa a[aria-current="page"] {
-    border-bottom: 3px solid #ffaa00;
+  border-bottom: 3px solid #ffaa00;
 }
 
-/* =============================================
-   LAYOUT GERAL
-   ============================================= */
+/* =================================================================
+   4. LAYOUT GERAL & CSS GRID (Sistema de 12 Colunas)
+   ================================================================= */
 main {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 32px 24px;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-sm);
 }
 
-section { margin-bottom: 40px; }
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-md);
+}
 
-h1 { font-size: 2rem; margin-bottom: 12px; color: #1d3557; }
-h2 { font-size: 1.4rem; margin-bottom: 10px; color: #1d3557; }
-h3 { font-size: 1.15rem; margin-bottom: 6px; color: #1d3557; }
+.col-12 { grid-column: span 12; }
+.col-8  { grid-column: span 8; }
+.col-6  { grid-column: span 6; }
+.col-4  { grid-column: span 4; }
+.col-3  { grid-column: span 3; }
 
-p { margin-bottom: 12px; }
+section { 
+  margin-bottom: var(--space-xl); 
+}
 
-/* =============================================
-   ASIDE
-   ============================================= */
+h1 { font-size: var(--font-size-h1); margin-bottom: var(--space-xs); color: var(--color-primary); }
+h2 { font-size: var(--font-size-h2); margin-bottom: 10px; color: var(--color-primary); }
+h3 { font-size: var(--font-size-h3); margin-bottom: 6px; color: var(--color-primary); }
+
+p { margin-bottom: var(--space-sm); }
+
+/* =================================================================
+   5. ASIDE & COMPONENTES (Flexbox)
+   ================================================================= */
 aside {
-    background: #DAA201;
-    color: #23272f;
-    border-radius: 20px;
-    padding: 9px 8px;
-    text-align: center;
+  background: var(--color-secondary);
+  color: #23272f;
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-xxs) 8px;
+  text-align: center;
 }
 
 aside a.botao {
-    display: inline-block;
-    margin-top: 17px;
-    background: #0393C2;
-    color: #fff;
-    padding: 18px 40px;
-    border-radius: 30px;
-    font-weight: 500;
-    font-size: 23px;
-    cursor: pointer;
-    border: none;
-    box-shadow: inset 0 4px 0 0 #fcce02;
-    transition: box-shadow 0.3s ease;
+  display: inline-block;
+  margin-top: 17px;
+  background: var(--color-accent);
+  color: var(--color-white);
+  padding: 18px 40px;
+  border-radius: 30px;
+  font-weight: 500;
+  font-size: 23px;
+  cursor: pointer;
+  border: none;
+  box-shadow: inset 0 4px 0 0 #fcce02;
+  transition: box-shadow var(--transition-speed);
 }
 
 aside a.botao:hover {
-    box-shadow: inset 0 -4px 0 0 #fcce02;
+  box-shadow: inset 0 -4px 0 0 #fcce02;
 }
 
 .seja-voluntario p {
-    font-size: 22px;
-    color: #000000;
-    font-weight: normal;
-    margin: 15px 10px;
+  font-size: 22px;
+  color: var(--color-neutral-dark);
+  font-weight: normal;
+  margin: 15px 10px;
 }
 
 .faca-parte h2 {
-    font-size: 30px;
-    color: #020202;
-    margin: 0;
+  font-size: 30px;
+  color: var(--color-neutral-dark);
+  margin: 0;
 }
 
-/* =============================================
-   CARDS DE PROJETO
-   ============================================= */
+/* =================================================================
+   6. CARDS DE PROJETO
+   ================================================================= */
 .titulo-com-imagem {
-    display: inline-flex;
-    align-items: center;
-    gap: 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .titulo-com-imagem h1 { margin: 0; }
 
 .imagem-projetos {
-    width: 60px;
-    height: auto;
-    margin-right: -30px;
+  width: 60px;
+  height: auto;
+  margin-right: -30px;
 }
 
 .subtexto {
-    text-align: center;
-    margin-bottom: 40px;
+  text-align: center;
+  margin-bottom: var(--space-xl);
 }
 
 .subtexto p {
-    font-weight: bold;
-    text-align: center;
-    font-size: 22px;
-    color: #000000;
+  font-weight: bold;
+  text-align: center;
+  font-size: 22px;
+  color: var(--color-neutral-dark);
 }
 
 .projeto {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid #1d3557;
-    background: #30548634;
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 40px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid var(--color-primary);
+  background: #30548634;
+  border-radius: var(--border-radius-md);
+  padding: var(--space-md);
+  margin-bottom: var(--space-xl);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 }
 
 .projeto p {
-    margin-top: 20px;
-    line-height: 1.3;
-    color: #050505;
-    font-family: 'Lato', sans-serif;
+  margin-top: var(--space-md);
+  line-height: 1.3;
+  color: var(--color-neutral-dark);
+  font-family: var(--font-family-alt);
 }
 
 .projeto h2 {
-    margin-top: 4px;
-    font-size: 1.6rem;
-    color: #1d3557;
-    line-height: 1.3;
-    text-align: center;
+  margin-top: 4px;
+  font-size: 1.6rem;
+  color: var(--color-primary);
+  line-height: 1.3;
+  text-align: center;
 }
 
 .projeto-destaque {
-    font-family: 'Raleway', sans-serif;
-    font-size: medium;
-    text-align: center;
-    color: #000000;
-    background-color: #DAA201;
-    border-radius: 15px;
-    padding: 30px 20px;
-    margin: 40px auto;
-    max-width: 800px;
+  font-family: var(--font-family-alt);
+  font-size: medium;
+  text-align: center;
+  color: var(--color-neutral-dark);
+  background-color: var(--color-secondary);
+  border-radius: 15px;
+  padding: 30px var(--space-md);
+  margin: var(--space-xl) auto;
+  max-width: 800px;
 }
 
 .projeto-destaque p {
-    font-weight: bold;
-    text-align: center;
-    color: #000000;
-    margin: 0;
+  font-weight: bold;
+  text-align: center;
+  color: var(--color-neutral-dark);
+  margin: 0;
 }
 
-/* =============================================
-   FORMULÁRIO
-   ============================================= */
+/* =================================================================
+   7. FORMULÁRIO
+   ================================================================= */
 form {
-    background: #fff;
-    border-radius: 8px;
-    padding: 8px 24px 24px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  background: var(--color-white);
+  border-radius: var(--border-radius-sm);
+  padding: 8px var(--space-lg) var(--space-lg);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
 }
 
 fieldset {
-    border: 1px solid #d8dde3;
-    border-radius: 6px;
-    padding: 16px 20px;
-    margin-top: 20px;
+  border: 1px solid #d8dde3;
+  border-radius: var(--border-radius-sm);
+  padding: var(--space-sm) var(--space-md);
+  margin-top: var(--space-md);
 }
 
 legend {
-    font-weight: bold;
-    color: #1d3557;
-    padding: 0 8px;
+  font-weight: bold;
+  color: var(--color-primary);
+  padding: 0 8px;
 }
 
 label {
-    display: block;
-    margin-top: 12px;
-    font-weight: 600;
-    font-size: 0.95rem;
+  display: block;
+  margin-top: var(--space-sm);
+  font-weight: 600;
+  font-size: 0.95rem;
 }
 
 .asterisco {
-    color: red;
-    font-weight: bold;
+  color: var(--color-danger);
+  font-weight: bold;
 }
 
 input, select {
-    width: 100%;
-    padding: 8px 10px;
-    margin-top: 4px;
-    border: 1px solid #c6ccd3;
-    border-radius: 6px;
-    font-size: 1rem;
+  width: 100%;
+  padding: 8px 10px;
+  margin-top: 4px;
+  border: 1px solid #c6ccd3;
+  border-radius: var(--border-radius-sm);
+  font-size: 1rem;
 }
 
-input:invalid:not(:placeholder-shown) { border-color: #e63946; }
+input:invalid:not(:placeholder-shown) { 
+  border-color: var(--color-danger); 
+}
 
 .radio-group {
-    display: flex;
-    gap: 20px;
-    margin-top: 8px;
+  display: flex;
+  gap: var(--space-md);
+  margin-top: var(--space-xs);
 }
 
 .radio-group label {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-weight: normal;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: normal;
 }
 
-.radio-group input { width: auto; margin-top: 0; }
+.radio-group input { 
+  width: auto; 
+  margin-top: 0; 
+}
 
 .ajuda {
-    font-size: 0.82rem;
-    color: #6b7280;
-    margin-top: 4px;
+  font-size: var(--font-size-small);
+  color: var(--color-neutral-mid);
+  margin-top: 4px;
 }
 
 button[type="submit"] {
-    margin-top: 24px;
-    background: #1d6fa5;
-    color: #fff;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 6px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
+  margin-top: var(--space-lg);
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--border-radius-sm);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
 }
 
-button[type="submit"]:hover { background: #175a86; }
+button[type="submit"]:hover { 
+  background: #175a86; 
+}
 
-/* =============================================
-   FOOTER
-   ============================================= */
+/* =================================================================
+   8. FOOTER
+   ================================================================= */
 footer {
-    background: #30548634;
-    color: #000000;
-    text-align: center;
-    padding: 20px;
-    margin-top: 40px;
-    font-size: 0.9rem;
+  background: #30548634;
+  color: var(--color-neutral-dark);
+  text-align: center;
+  padding: var(--space-md);
+  margin-top: var(--space-xl);
+  font-size: 0.9rem;
 }
 
-footer a { color: #050505; }
+footer a { 
+  color: var(--color-neutral-dark); 
+}
 
+/* =================================================================
+   9. BREAKPOINTS E ADAPTABILIDADE (5 Pontos de Quebra / @media)
+   ================================================================= */
 
-seletor {
-    propriedade: valor;
+/* Ponto de Quebra 1: Dispositivos móveis muito pequenos (Até 480px) */
+@media screen and (max-width: 480px) {
+  :root {
+    --font-size-display: 1.8rem;
+    --font-size-h1: 1.5rem;
+  }
+  header {
+    flex-direction: column;
+    padding: var(--space-md) var(--space-xs);
+  }
+  .secao-interativa ul {
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+  .grid-12 {
+    grid-template-columns: 1fr;
+  }
+  [class*="col-"] {
+    grid-column: span 12;
+  }
+}
+
+/* Ponto de Quebra 2: Celulares maiores e tablets verticais (481px a 768px) */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .grid-12 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .col-4, .col-3 {
+    grid-column: span 6;
+  }
+  .col-8, .col-6 {
+    grid-column: span 6;
+  }
+}
+
+/* Ponto de Quebra 3: Tablets em paisagem e laptops compactos (769px a 1024px) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .grid-12 {
+    grid-template-columns: repeat(12, 1fr);
+  }
+  .col-4 {
+    grid-column: span 6;
+  }
+  .col-3 {
+    grid-column: span 4;
+  }
+}
+
+/* Ponto de Quebra 4: Desktops padrão (1025px a 1280px) */
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+  main {
+    max-width: 900px;
+  }
+}
+
+/* Ponto de Quebra 5: Monitores de alta resolução e telas grandes (A partir de 1281px) */
+@media screen and (min-width: 1281px) {
+  :root {
+    --font-size-display: 3rem;
+  }
+  main {
+    max-width: 1100px;
+  }
 }
