@@ -472,3 +472,11 @@ footer a {
     max-width: 1100px;
   }
 }
+
+.vidas{
+    text-align: center;
+}
+
+.quemsomos{
+    border-radius: 20px;
+}
