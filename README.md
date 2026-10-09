@@ -93,14 +93,25 @@ As releases seguem `MAJOR.MINOR.PATCH`:
 
 ---
 
-## 💻 Como Executar o Projeto Localmente
+## 💻 Pré-requisitos e Execução Local
+
+### Pré-requisitos
+
+- **Visual Studio Code** com a extensão **Live Server**.
+- Navegador atual (Chrome, Edge ou Firefox).
+- Ligação à internet, pois a biblioteca **Chart.js** e as fontes são carregadas por CDN.
+
+> O projeto é estático (HTML, CSS e JavaScript): **não há instalação de dependências (npm), etapa de build nem testes automatizados**.
+
+### Passo a passo
 
 Devido à utilização de ES6 Modules (`import`/`export`), a aplicação requer um servidor local para funcionar corretamente sem bloqueios de CORS:
 
-1. Clone o repositório para a sua máquina.
+1. Clone o repositório: `git clone https://github.com/YorranaSVieira/ong-html-css.git`
 2. Abra a pasta do projeto no VS Code.
 3. Certifique-se de ter a extensão **Live Server** instalada.
-4. Clique com o botão direito sobre o ficheiro principal e selecione **"Open with Live Server"**.
+4. Clique com o botão direito sobre `html/index.html` e selecione **"Open with Live Server"**.
+5. A aplicação abre no navegador; a navegação usa Hash Routing (`#/`, `#/projetos`, `#/cadastro`).
 
 ---
 
