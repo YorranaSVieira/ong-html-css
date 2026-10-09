@@ -55,28 +55,66 @@ ong-html-css/
 ├── .gitattributes
 ├── LICENSE
 └── README.md
+```
 
-🌿 Estratégia de Versionamento (GitFlow)
+---
+
+## 🌿 Estratégia de Versionamento (GitFlow)
+
 O histórico de desenvolvimento deste projeto foi gerido seguindo o modelo padrão GitFlow, garantindo organização corporativa:
 
-main: Versão estável pronta para ambiente de produção.
+- `main`: versão estável pronta para ambiente de produção.
+- `develop`: linha principal de desenvolvimento contínuo e integração.
+- `feature/*`: ramificações isoladas para a construção de novas funcionalidades (ex.: estruturação da SPA e roteamento, acessibilidade).
+- `hotfix/*`: ramificações dedicadas a correções urgentes.
 
-develop: Linha principal de desenvolvimento contínuo e integração.
+### Conventional Commits
 
-feature/*: Ramificações isoladas para a construção de novas funcionalidades (ex: estruturação da SPA e roteamento).
+As mensagens de commit seguem o padrão `tipo(escopo): descrição`:
 
-hotfix/*: Ramificações dedicadas a correções urgentes.
+| Tipo | Uso |
+|---|---|
+| `feat` | nova funcionalidade |
+| `fix` | correção de erro |
+| `docs` | alteração apenas de documentação |
+| `refactor` | reestruturação sem mudar comportamento |
 
-💻 Como Executar o Projeto Localmente
-Devido à utilização de ES6 Modules (import/export), a aplicação requer um servidor local para funcionar corretamente sem bloqueios de CORS:
+Exemplo: `feat(a11y): adiciona link de salto, foco visivel e reducao de movimento`
 
-Clone o repositório para a sua máquina.
+### Versionamento Semântico (SemVer)
 
-Abra a pasta do projeto no VS Code.
+As releases seguem `MAJOR.MINOR.PATCH`:
 
-Certifique-se de ter a extensão Live Server instalada.
+| Release | Tipo | Conteúdo |
+|---|---|---|
+| `v1.0.0` | MAJOR | SPA com Hash Routing, Design System CSS3 e formulário com `localStorage` |
+| `v1.1.0` | MINOR | Melhorias de acessibilidade (link de salto, foco visível, redução de movimento) |
+| `v1.1.1` | PATCH | Correção de formatação do README |
 
-Clique com o botão direito sobre o ficheiro principal e selecione "Open with Live Server".
+---
 
-👥 Autoria
-Desenvolvido com dedicação por Yorrana S. Vieira.
+## 💻 Pré-requisitos e Execução Local
+
+### Pré-requisitos
+
+- **Visual Studio Code** com a extensão **Live Server**.
+- Navegador atual (Chrome, Edge ou Firefox).
+- Ligação à internet, pois a biblioteca **Chart.js** e as fontes são carregadas por CDN.
+
+> O projeto é estático (HTML, CSS e JavaScript): **não há instalação de dependências (npm), etapa de build nem testes automatizados**.
+
+### Passo a passo
+
+Devido à utilização de ES6 Modules (`import`/`export`), a aplicação requer um servidor local para funcionar corretamente sem bloqueios de CORS:
+
+1. Clone o repositório: `git clone https://github.com/YorranaSVieira/ong-html-css.git`
+2. Abra a pasta do projeto no VS Code.
+3. Certifique-se de ter a extensão **Live Server** instalada.
+4. Clique com o botão direito sobre `html/index.html` e selecione **"Open with Live Server"**.
+5. A aplicação abre no navegador; a navegação usa Hash Routing (`#/`, `#/projetos`, `#/cadastro`).
+
+---
+
+## 👥 Autoria
+
+Desenvolvido com dedicação por **Yorrana S. Vieira**.
