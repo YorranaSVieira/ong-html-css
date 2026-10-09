@@ -7,11 +7,16 @@
   --color-secondary: #DAA201;       /* 2. Amarelo/Dourado secundário */
   --color-accent: #0393C2;          /* 3. Azul de destaque/botão */
   --color-action: #0692f0;          /* 4. Azul de links */
-  --color-danger: #e63946;          /* 5. Vermelho de erro/validação */
+  --color-danger: #8b0f1a;          /* 5. Vermelho de erro/validação (4.99:1 no fundo, 9:1 no branco) */
   --color-neutral-dark: #050505;    /* 6. Texto principal escuro */
   --color-neutral-mid: #6b7280;     /* 7. Texto secundário/cinza */
   --color-neutral-light: #a2adc4d2; /* 8. Fundo suave / neutro claro */
   --color-white: #ffffff;           /* Branco puro */
+  --color-button: #03528C;          /* Azul de botões (branco sobre ele: 8.11:1) */
+
+  /* --- ANEL DE FOCO (duas camadas: visível em qualquer fundo, WCAG 1.4.11) --- */
+  --focus-outer: #1d3557;
+  --focus-inner: #ffffff;
 
   /* --- TIPOGRAFIA (5 Patamares Hierárquicos) --- */
   --font-family-base: 'Valley Sans', system-ui, Arial, sans-serif;
@@ -108,7 +113,7 @@ header .logo-img {
 header .logo {
   font-size: var(--font-size-display);
   font-weight: bold;
-  color: #fcfafa;
+  color: var(--color-primary); /* #fcfafa dava só 2.37:1 sobre o cabeçalho */
 }
 
 .secao-interativa {
@@ -196,7 +201,7 @@ aside {
 aside a.botao {
   display: inline-block;
   margin-top: 17px;
-  background: var(--color-accent);
+  background: var(--color-button); /* antes #0393C2: 3.53:1 */
   color: var(--color-white);
   padding: 18px 40px;
   border-radius: 30px;
@@ -490,8 +495,9 @@ footer a {
    ================================================================= */
 
 :focus-visible {
-  outline: 3px solid var(--color-secondary);
-  outline-offset: 3px;
+  outline: 3px solid var(--focus-outer);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px var(--focus-inner);
 }
 
 
@@ -520,4 +526,79 @@ footer a {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+
+/* =================================================================
+   11. TEMAS: CLARO (padrão) E ESCURO (WCAG 1.4.3 - contraste 4.5:1)
+   O tema é definido pelo atributo data-theme no <html>, escolhido
+   pelo botão do cabeçalho, pela preferência salva (localStorage)
+   ou pela preferência do sistema (prefers-color-scheme).
+   ================================================================= */
+.btn-tema {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-md);
+  font: inherit;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--color-white);
+  background: var(--color-button);
+  border: 2px solid var(--color-primary);
+  border-radius: 30px;
+  cursor: pointer;
+  transition: transform var(--transition-speed), background var(--transition-speed);
+}
+
+.btn-tema:hover { transform: translateY(-2px); background: #175a86; }
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-neutral-light: #111827;   /* fundo da página */
+  --color-primary: #a9c9f5;         /* títulos e detalhes (10.44:1) */
+  --color-danger: #ff8a93;          /* erros (7.86:1) */
+  --color-neutral-mid: #aab2c0;     /* texto de apoio (6.88:1) */
+  --focus-outer: #ffd54a;
+  --focus-inner: #111827;
+}
+
+:root[data-theme="dark"] body,
+:root[data-theme="dark"] .subtexto p,
+:root[data-theme="dark"] .projeto p,
+:root[data-theme="dark"] footer,
+:root[data-theme="dark"] footer a {
+  color: #f3f4f6;                   /* texto principal (16.12:1) */
+}
+
+:root[data-theme="dark"] header,
+:root[data-theme="dark"] footer,
+:root[data-theme="dark"] .projeto {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+:root[data-theme="dark"] header .logo { color: #f3f4f6; }
+
+/* Base clara atrás do logótipo (imagem com letras azul-escuras) */
+:root[data-theme="dark"] header .logo-img {
+  padding: var(--space-xs);
+  background: #f3f4f6;
+  border-radius: var(--border-radius-md);
+}
+
+:root[data-theme="dark"] form { background: #1f2937; }
+
+:root[data-theme="dark"] input,
+:root[data-theme="dark"] select {
+  color: #f3f4f6;
+  background: #111827;
+  border-color: #6b7280;
+}
+
+:root[data-theme="dark"] ::placeholder { color: #aab2c0; opacity: 1; }
+
+:root[data-theme="dark"] button[type="submit"],
+:root[data-theme="dark"] .skip-link {
+  color: var(--color-white);
+  background: var(--color-button);
 }

@@ -6,6 +6,17 @@
     <title>ABIA - SPA</title>
     <link href="https://fonts.googleapis.com/css2?family=Valley+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles.css">
+
+    <!-- Aplica o tema salvo (ou a preferência do sistema) antes de pintar a página -->
+    <script>
+        try {
+            var t = localStorage.getItem('tema_abia');
+            if (t !== 'dark' && t !== 'light') {
+                t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            document.documentElement.setAttribute('data-theme', t);
+        } catch (e) { /* storage indisponível: mantém o tema claro */ }
+    </script>
     
     <!-- Biblioteca externa -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -30,6 +41,9 @@
                 </ul>
             </nav>
         </div>
+        <button type="button" id="btn-tema" class="btn-tema" aria-pressed="false">
+            <span aria-hidden="true">🌙</span> Modo escuro
+        </button>
     </header>
 
     <!-- Contentor onde o JavaScript injeta o conteúdo -->
