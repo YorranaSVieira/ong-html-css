@@ -53,8 +53,11 @@ ong-html-css/
 │   └── pages.js
 │
 ├── .gitattributes
+├── .gitignore
 ├── LICENSE
-└── README.md
+├── README.md
+├── package.json
+└── vite.config.js
 ```
 
 ---
@@ -100,8 +103,9 @@ As releases seguem `MAJOR.MINOR.PATCH`:
 - **Visual Studio Code** com a extensão **Live Server**.
 - Navegador atual (Chrome, Edge ou Firefox).
 - Ligação à internet, pois a biblioteca **Chart.js** e as fontes são carregadas por CDN.
+- **Node.js 20.19+ (ou 22.12+)** e npm, apenas para gerar o build de produção.
 
-> O projeto é estático (HTML, CSS e JavaScript): **não há instalação de dependências (npm), etapa de build nem testes automatizados**.
+> Para desenvolver e visualizar, basta o Live Server (sem instalar nada). O **npm** só é necessário para o build de produção. Não há testes automatizados.
 
 ### Passo a passo
 
@@ -112,6 +116,34 @@ Devido à utilização de ES6 Modules (`import`/`export`), a aplicação requer 
 3. Certifique-se de ter a extensão **Live Server** instalada.
 4. Clique com o botão direito sobre `html/index.html` e selecione **"Open with Live Server"**.
 5. A aplicação abre no navegador; a navegação usa Hash Routing (`#/`, `#/projetos`, `#/cadastro`).
+
+---
+
+### Build de produção (Vite)
+
+O projeto usa o **Vite** como _bundler_ para gerar uma versão otimizada em `dist/`:
+
+```bash
+npm install      # instala o Vite e o minificador de HTML (uma única vez)
+npm run build    # gera a pasta dist/ minificada
+npm run preview  # (opcional) serve o dist/ para conferir o resultado
+```
+
+Configuração (`vite.config.js`):
+- **Entradas:** `html/index.html`, `html/projetos.html` e `html/cadastro.html`; o Vite agrupa `main.js`, `pages.js` e `formularios.js` num único arquivo.
+- **CSS e JS:** minificados pelo próprio Vite (remove espaços, quebras de linha e comentários).
+- **HTML:** minificado pelo plugin `html-minifier-terser`, incluindo os `<script>` inline.
+- **`base: './'`:** caminhos relativos, para o site funcionar em qualquer pasta.
+- **Imagens:** um plugin copia `imagem/` para `dist/imagem/`, porque o `pages.js` referencia as fotos dentro de _template literals_, que o bundler não reescreve.
+
+Resultado medido (bytes):
+
+| Arquivo | Antes | Depois | Redução |
+|---|---|---|---|
+| CSS | 14.540 | 8.859 | 39,1% |
+| JS (3 arquivos → 1) | 11.307 | 9.361 | 17,2% |
+| HTML (3 páginas) | 13.630 | 8.978 | 34,1% |
+| **Total** | **39.477** | **27.198** | **31,1%** |
 
 ---
 
