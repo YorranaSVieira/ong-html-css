@@ -46,6 +46,7 @@ ong-html-css/
 │   └── projetos.html
 │
 ├── imagem/
+│   └── webp/
 │
 ├── js/
 │   ├── formularios.js
@@ -144,6 +145,25 @@ Resultado medido (bytes):
 | JS (3 arquivos → 1) | 11.307 | 9.361 | 17,2% |
 | HTML (3 páginas) | 13.630 | 8.978 | 34,1% |
 | **Total** | **39.477** | **27.198** | **31,1%** |
+
+---
+
+### Otimização de imagens
+
+As imagens originais somavam cerca de 1,1 MB (logótipo de 654 KB para uma área de 180 px). Medidas aplicadas:
+
+- **WebP nas fotos** (qualidade 80), com o JPEG original como alternativa via `<picture>`.
+- **PNG otimizado no logótipo e no ícone** (256 cores, redimensionados): para imagens com poucas cores o PNG ficou menor que o WebP (7,2 KB contra 13,8 KB).
+- **Resolução adaptativa:** `srcset` com `sizes` nas fotos (480 e 800 px) e `1x`/`2x` no logótipo e no ícone.
+- **Sem saltos de layout:** `width` e `height` em todas as imagens.
+- **Carregamento tardio:** `loading="lazy"` nas fotos dos projetos.
+
+Impacto medido no build, com rede simulada de 1,6 Mbps e 150 ms de latência:
+
+| Página | Imagens (antes → depois) | Tempo até carregar tudo |
+|---|---|---|
+| Início | 673 KB → 24 KB (-96%) | 4,1 s → 1,1 s (-73%) |
+| Projetos | 1.060 KB → 94 KB (-91%) | 6,1 s → 1,1 s (-81%) |
 
 ---
 
