@@ -7,7 +7,10 @@ export const pageInicio = () => `
             <p>A Associação Brasileira pela Inclusão Autista (ABIA) é uma organização sem fins lucrativos dedicada a ampliar oportunidades reais de inclusão para pessoas autistas em todas as fases da vida. Conectamos voluntários, doadores e parceiros a projetos que promovem autonomia, acesso à educação, saúde, trabalho e participação social para a comunidade autista e suas famílias.</p>
             
            
-            <img class="quemsomos" src="../imagem/quemsomos.jpg" alt="Foto das mãos segurando o quebra-cabeça">
+            <picture>
+                <source type="image/webp" srcset="../imagem/webp/quemsomos-480.webp 480w, ../imagem/webp/quemsomos-820.webp 820w" sizes="(max-width: 480px) 260px, (max-width: 820px) 560px, (max-width: 1280px) 620px, 760px">
+                <img src="../imagem/quemsomos.jpg" alt="Foto das mãos segurando o quebra-cabeça" class="quemsomos" width="820" height="440" decoding="async">
+            </picture>
         </section>
 
         <section aria-labelledby="nosso-impacto">
@@ -32,7 +35,7 @@ export const pageInicio = () => `
 export const pageProjetos = () => `
     <div class="col-12 text-center">
         <div class="titulo-com-imagem">
-            <img src="../imagem/imgprojetos.png" alt="Cordão Quebra Cabeça" class="imagem-projetos">
+            <img src="../imagem/imgprojetos-60.png" srcset="../imagem/imgprojetos-120.png 2x" alt="Cordão Quebra Cabeça" class="imagem-projetos" width="60" height="60" decoding="async">
             <h1>Nossos Projetos</h1>
         </div>
     </div>
@@ -46,7 +49,10 @@ export const pageProjetos = () => `
             <h2>Educação Inclusiva</h2>
             <p>Formamos professores e escolas para receber e ensinar crianças autistas com metodologias adaptadas, promovendo aprendizado respeitoso às diferentes formas de processar o mundo.</p>
         </div>
-        <img src="../imagem/educacao.jpg" alt="Professora ensinando crianças">
+        <picture>
+            <source type="image/webp" srcset="../imagem/webp/educacao-480.webp 480w, ../imagem/webp/educacao-800.webp 800w" sizes="(max-width: 480px) 230px, (max-width: 1280px) 270px, 340px">
+            <img src="../imagem/educacao.jpg" alt="Professora ensinando crianças" width="1024" height="658" loading="lazy" decoding="async">
+        </picture>
     </article>
 
     <article class="projeto col-6">
@@ -54,7 +60,10 @@ export const pageProjetos = () => `
             <h2>Autonomia para o Trabalho</h2>
             <p>Preparamos jovens e adultos autistas para o mercado de trabalho, com capacitação profissional, apoio na busca por vagas e sensibilização de empresas parceiras sobre contratação inclusiva.</p>
         </div>
-        <img src="../imagem/autonomia.jpg" alt="Jovens no computador">
+        <picture>
+            <source type="image/webp" srcset="../imagem/webp/autonomia-480.webp 480w, ../imagem/webp/autonomia-800.webp 800w" sizes="(max-width: 480px) 230px, (max-width: 1280px) 270px, 340px">
+            <img src="../imagem/autonomia.jpg" alt="Jovens no computador" width="1408" height="768" loading="lazy" decoding="async">
+        </picture>
     </article>
 
     <article class="projeto col-6">
@@ -62,7 +71,10 @@ export const pageProjetos = () => `
             <h2>Comunicação e Tecnologia Assistiva</h2>
             <p>Distribuímos ferramentas de comunicação alternativa e aplicativos acessíveis que ajudam pessoas autistas não-verbais ou com dificuldades de comunicação a se expressarem com mais autonomia.</p>
         </div>
-        <img src="../imagem/comunicacao.jpg" alt="Crianças com tablets">
+        <picture>
+            <source type="image/webp" srcset="../imagem/webp/comunicacao-480.webp 480w, ../imagem/webp/comunicacao-800.webp 800w" sizes="(max-width: 480px) 230px, (max-width: 1280px) 270px, 340px">
+            <img src="../imagem/comunicacao.jpg" alt="Crianças com tablets" width="1024" height="683" loading="lazy" decoding="async">
+        </picture>
     </article>
 
     <article class="projeto col-6">
@@ -70,7 +82,10 @@ export const pageProjetos = () => `
             <h2>Saúde Acessível</h2>
             <p>Conectamos pessoas autistas a atendimento especializado, psicólogos, terapeutas ocupacionais e outros profissionais, muitas vezes gratuito ou custo reduzido.</p>
         </div>
-        <img src="../imagem/saude.jpg" alt="Profissional da saúde atendendo">
+        <picture>
+            <source type="image/webp" srcset="../imagem/webp/saude-480.webp 480w, ../imagem/webp/saude-800.webp 800w" sizes="(max-width: 480px) 230px, (max-width: 1280px) 270px, 340px">
+            <img src="../imagem/saude.jpg" alt="Profissional da saúde atendendo" width="1024" height="682" loading="lazy" decoding="async">
+        </picture>
     </article>
 
     <div class="projeto-destaque col-12 text-center">
